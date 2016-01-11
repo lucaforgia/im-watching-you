@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'im-watchin-you',
+    modulePrefix: 'im-watching-you',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

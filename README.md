@@ -1,7 +1,11 @@
-# Im-watchin-you
+# I'we! - I'm watching you!
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+It's just an emberjs demo. So, don't nag me.
+
+What it does.
+You create tasks, like in a to-do list. You can delete them. And you can start-stop the chronometer relative to that task. So at the end of the day you have a slight idea how the fuck you have spent your precious life.
+
+
 
 ## Prerequisites
 

@@ -1,7 +1,7 @@
 {
-  "name": "im-watchin-you",
-  "version": "0.0.0",
-  "description": "Small description for im-watchin-you goes here",
+  "name": "im-watching-you",
+  "version": "0.1.0",
+  "description": "Like a to do list, but to keep track the time you spend on your tasks. Mostly an emberjs demo.",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -16,7 +16,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Lucaf <luca_forgia@yahoo.it>",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.2.0",
