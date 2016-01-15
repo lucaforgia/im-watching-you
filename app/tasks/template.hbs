@@ -1,1 +1,11 @@
+<h3>tasks template</h3>
+
+{{link-to "add a task" "tasks.new"}}
+
+{{#each model as |task|}}
+<div {{action "goToTask" task}}>
+	{{task.title}}:{{task.time}}
+</div>
+{{/each}}
+
 {{outlet}}

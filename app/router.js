@@ -8,6 +8,10 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('tasks', function() {
     this.route('new');
+
+    this.route('show', {
+      path: ':task_id'
+    });
   });
 });
 

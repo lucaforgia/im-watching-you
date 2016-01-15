@@ -1,0 +1,12 @@
+<h3>
+	Show task {{model.title}}
+</h3>
+
+<div>
+	time:{{model.time}}
+</div>
+<div>
+	<button type="button" name="button" {{action "startTimer" model}}>START/STOP</button>
+</div>
+
+{{outlet}}
