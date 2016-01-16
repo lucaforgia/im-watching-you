@@ -13,7 +13,7 @@ export default Ember.Route.extend({
 
 		if(this.get('isRunning')){
 			let timer = setInterval(()=>{
-				_t.incrementProperty('currentModel.time', 0.1);
+				_t.incrementProperty('currentModel.time', 100);
 			},100);
 			this.set('timer',timer);
 		}else{
@@ -32,6 +32,7 @@ export default Ember.Route.extend({
 		},
 		resetTime(model){
 			model.set('time',0);
+			model.save();
 		}
 
 	}
