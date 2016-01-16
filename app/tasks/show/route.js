@@ -29,6 +29,9 @@ export default Ember.Route.extend({
 		},
 		startTimer(){
 			this.toggleProperty('isRunning');
+		},
+		resetTime(model){
+			model.set('time',0);
 		}
 
 	}
