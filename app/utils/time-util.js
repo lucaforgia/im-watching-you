@@ -9,8 +9,8 @@ function formatTime(time){
     }
 }
 
-function getTime(milliseconds) {
-    var time = moment.duration(milliseconds);
+function getTime(seconds) {
+    var time = moment.duration(seconds,'seconds');
     return formatTime(time.hours()) + ' : ' + formatTime(time.minutes()) + ' : ' + formatTime(time.seconds());
 }
 
