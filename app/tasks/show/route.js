@@ -56,8 +56,8 @@ export default Ember.Route.extend({
 			this.toggleProperty('currentModel.isRunning');
 		},
 		resetTime(model){
+			this.set('time',0);
 			model.set('time',0);
-			model.save();
 		},
 		showTime(){
 			this.set('currentModel.time',this.get('time'));
