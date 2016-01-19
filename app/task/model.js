@@ -10,7 +10,8 @@ var Task = DS.Model.extend({
         get(){
             return getTime(this.get('time'));
         }
-    })
+    }),
+    isRunning:DS.attr('boolean')
 });
 
 export default Task

@@ -7,10 +7,6 @@ export default Ember.Route.extend({
 	actions:{
 		goToTask(model){
 			this.transitionTo('tasks.show',model);
-		},
-		removeTask(model){
-			model.deleteRecord();
-			this.transitionTo('tasks');
 		}
 	}
 });
