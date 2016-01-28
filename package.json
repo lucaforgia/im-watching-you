@@ -17,7 +17,7 @@
     "node": ">= 0.10.0"
   },
   "author": "Lucaf <luca_forgia@yahoo.it>",
-  "license": "MIT",
+  "license": "GNU",
   "devDependencies": {
     "broccoli-asset-rev": "^2.2.0",
     "ember-cli": "1.13.13",

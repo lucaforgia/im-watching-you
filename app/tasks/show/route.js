@@ -55,14 +55,14 @@ export default Ember.Route.extend({
 		chronoClick(){
 			this.toggleProperty('currentModel.isRunning');
 		},
-		resetTime(model){
+		resetTime(){
 			this.set('time',0);
-			model.set('time',0);
+			this.set('currentModel.time',0);
 		},
 		showTime(){
 			this.set('currentModel.time',this.get('time'));
 		},
-		removeTask(model){
+		removeTask(){
 			this.set('delete',true);
 			this.transitionTo('tasks');
 		}

@@ -1,23 +1,7 @@
-<h3>
-	Show task {{model.title}}
-</h3>
-
-
-<div {{action "showTime"}}>
-	time:[{{model.chronoTime}}]
-</div>
-<div>
-	{{!-- [[{{isRunning}}]] --}}
-	{{!-- <button class="inactive" id="chronoBtn" type="button" name="button" {{action "startTimer" model}}>START/STOP</button> --}}
-	{{tasks/show/chrono-btn chronoClick="chronoClick" isRunning=model.isRunning}}
-</div>
-
-<div>
-	<button type="button" name="button" {{action "resetTime" model}}>RESET</button>
-</div>
-
-<div>
-	<button type="button" name="button" {{action "removeTask" model}}>REMOVE</button>
-</div>
+{{tasks/show-page
+	title=model.title
+	isRunning=model.isRunning
+	time=model.chronoTime
+	showTime="showTime" chronoClick="chronoClick" resetTime="resetTime" removeTask="removeTask"}}
 
 {{outlet}}

@@ -1,10 +1,17 @@
-# I'we! - I'm watching you!
+# I'wy! - I'm watching you!
 
-It's just an emberjs demo. So, don't nag me.
+## The application right here to smack you. In. The. Face.
 
-What it does.
+This _stuff_ is not intended to be really a community-driven project. Please don't do pull requests.
+
+**This's just a frigging emberjs demo.** So, don't nag me.
+
+What it does.  
 You create tasks, like in a to-do list. You can delete them. And you can start-stop the chronometer relative to that task. So at the end of the day you have a slight idea how the fuck you have spent your precious life.
 
+The app is develop keeping in mind that it has to be as light as possible since it's a background app. So, no model-render changes inside the _chrono_ _setInteval()_ loop. The **view** (the time) is updated only with an **explicit user action**, clicking on the time, stopping the chrono, or exiting the route (in that case the model is updated and saved). Also, no animations.
+
+The choice to don't constantly update the time is also to remove the potential distraction (a running timer draws your eyes).
 
 
 ## Prerequisites
@@ -54,4 +61,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
