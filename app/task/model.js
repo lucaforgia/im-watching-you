@@ -14,4 +14,4 @@ var Task = DS.Model.extend({
     isRunning:DS.attr('boolean')
 });
 
-export default Task
+export default Task;

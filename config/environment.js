@@ -20,7 +20,6 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-      console.log('development envo');
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -28,8 +27,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
+
   if (environment === 'test') {
-      console.log('test envo');
     // Testem prefers this...
     ENV.baseURL = '/';
     ENV.locationType = 'none';
@@ -42,7 +41,6 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-     console.log('production envo');
   }
 
   return ENV;

@@ -2,24 +2,33 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('tasks/show-page', 'Integration | Component | tasks/show page', {
-  integration: true
+    integration: true
 });
 
 test('it renders', function(assert) {
-  
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
+    assert.expect(3);
 
-  this.render(hbs`{{tasks/show-page}}`);
+    var title = 'currentTitle';
+    var time = '11';
+    this.set('title', title);
+    this.set('time',time);
 
-  assert.equal(this.$().text().trim(), '');
+    this.render(hbs`{{tasks/show-page title=title time=time isRunning=true}}`);
 
-  // Template block usage:" + EOL +
-  this.render(hbs`
-    {{#tasks/show-page}}
-      template block text
-    {{/tasks/show-page}}
-  `);
+    var htmlText = this.$().text().trim();
+    assert.notEqual(htmlText, '');
 
-  assert.equal(this.$().text().trim(), 'template block text');
+    assert.ok(htmlText.indexOf(title) !== -1);
+    assert.ok(htmlText.indexOf(time) !== -1);
+});
+
+test('active class works', function(assert) {
+    assert.expect(2);
+    this.set('running',true);
+    this.render(hbs`{{tasks/show-page isRunning=running}}`);
+    assert.ok(this.$('div').hasClass('active'));
+    this.set('running',false);
+    assert.ok(!this.$('div').hasClass('active'));
 });
