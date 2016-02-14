@@ -12,6 +12,7 @@ Router.map(function() {
           path: ':task_id'
       });
   });
+  this.route('info');
 });
 
 export default Router;

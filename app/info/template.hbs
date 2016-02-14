@@ -1,0 +1,27 @@
+<div id="info-route">
+	<h1>
+		<img src="assets/images/logo-index.png" alt="" />I'wy!<img src="assets/images/logo-index.png" alt="" />
+	</h1>
+	<h2>I'm watching you!</h2>
+	<h3>
+		The application right here to smack you.<br/>
+		In. The. Face.
+	</h3>
+
+	<div class="credits">
+		an <span>Lucaf's</span> application
+	</div>
+	<a class="email" href="mailto:luca.forgia@gmail.com">luca.forgia@gmail.com</a>
+	<div class="tools">
+		done with Emberjs, Ember-Cli, Nodejs, Stylus, and Inkscape
+	</div>
+	<div class="link">
+		<a target="_blank" href="https://github.com/lucaforgia/im-watching-you">GitHub</a>
+	</div>
+
+	{{#link-to "tasks" class="return-btn"}}
+		{{list-btn}}
+	{{/link-to}}
+
+</div>
+{{outlet}}

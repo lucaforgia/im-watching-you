@@ -1,19 +1,21 @@
-<h3>
-	Show task {{title}}
-</h3>
-<div {{action "showTime"}}>
-	time:[{{time}}]
+<div id="title" class="elips">
+	{{title}}
 </div>
 <div>
-	<button id="chronoBtn" type="button" name="button" {{action "chronoClick"}}>START/STOP</button>
-	{{!-- {{tasks/show/chrono-btn chronoClick="chronoClick" isRunning=model.isRunning}} --}}
+	{{tasks/show/chrono-btn chronoClick="chronoClick"}}
+</div>
+
+<div class="time" {{action "showTime"}}>
+	{{time}}
+</div>
+
+<div class="reset-container">
+	{{#main-btn action="resetTime"}}
+		Reset
+	{{/main-btn }}
 </div>
 
 <div>
-	<button type="button" name="button" {{action "resetTime"}}>RESET</button>
-</div>
-
-<div>
-	<button type="button" name="button" {{action "removeTask"}}>REMOVE</button>
+	{{tasks/show/trash-btn action="removeTask" class="trash-btn"}}
 </div>
 {{yield}}

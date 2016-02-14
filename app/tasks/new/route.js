@@ -22,7 +22,21 @@ export default Ember.Route.extend({
 		alert('Set a proper title');
 	},
 
+	returnToList(){
+		var model = this.get('currentModel');
+		model.set('title','');
+		this.transitionTo('tasks');
+	},
+
 	actions:{
+		onKeyPress(keyCode){
+			if(keyCode === 27){
+				this.returnToList();
+			}
+		},
+		cancelNew(){
+			this.returnToList();
+		},
 		willTransition(){
 			var model = this.get('currentModel');
 			if(!this.isValid(model)){
@@ -30,12 +44,12 @@ export default Ember.Route.extend({
 			}
 			model.save();
 		},
-		saveTask(model){
+		saveTask(){
+			var model = this.get('currentModel');
 			if(!this.isValid(model)){
 				this.showAlert();
 			}
 			else{
-				model.save();
 				this.transitionTo('tasks');
 			}
 		},

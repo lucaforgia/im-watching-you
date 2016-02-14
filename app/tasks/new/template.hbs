@@ -1,10 +1,24 @@
-<div>
-	<div>
-		Titile
+<div id="new-route">
+	<div class="alert">
+		<div class="title">
+			New Task
+		</div>
+		<form class="save" {{action "saveTask" on="submit"}}>
+
+			<div class="input">
+				{{!-- {{input value=model.title}} --}}
+				{{input-text model=model action="onKeyPress"}}
+			</div>
+			<div class="btn-cont">
+				{{#main-btn class="cancel-btn" action="cancelNew" small=true}}
+					Cancel
+				{{/main-btn}}
+				{{#main-btn class="save-btn" action="saveTask" small=true}}
+					Save
+				{{/main-btn}}
+				<div class="clear-both"/>
+			</div>
+		</form>
 	</div>
-	{{input value=model.title}}
+	{{outlet}}
 </div>
-
-<button type="button" name="button" {{action "saveTask" model}}>SAVE</button>
-
-{{outlet}}

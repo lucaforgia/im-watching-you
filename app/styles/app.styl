@@ -1,10 +1,50 @@
-chronoBtn_w = 150px
-chronoBtn_r = chronoBtn_w / 2
+@require 'variables' // global variables
+@require 'normalize' // normalize, uh
 
-// .chronoBtn
-// 	border 15px solid
-// 	border-color rgba(255, 0, 0, 0);
-// 	width chronoBtn_w
-// 	height chronoBtn_w
-// 	border-radius chronoBtn_r
-// 	text-align center
+
+//general css
+html
+	background-color html_bg
+	color base_color
+	font-family app_font_family_light
+
+a
+	text-decoration none
+
+#im-watching-you
+	menu, menuitem
+		margin 0
+		padding 0
+
+	background-color app_bg
+	max-width app_width
+	height app_height
+	margin 0 auto
+	margin-top 50px
+
+	textarea, input
+		outline none
+
+	.clear-both
+		clear both
+
+	.elips
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+	*:not(input)
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+
+// css for the different routes-views
+
+@require 'main-button'
+@require 'index' //app-index route
+@require 'info' //info route
+@require 'tasks' //tasks route
+@require 'show' //tasks/show route
+@require 'newtask' //tasks/new route

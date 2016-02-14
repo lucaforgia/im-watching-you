@@ -1,11 +1,58 @@
-<h3>tasks template</h3>
+<div id="tasks-route">
+	{{outlet}}
+	<div id="tasks-container">
+		<menu>
+			<menuitem type="command" label="list">
+				{{#link-to "tasks"}}
+					{{list-btn}}
+				{{/link-to}}
+			</menuitem>
+			<menuitem type="command" label="info">
+				{{#link-to "info"}}
+					<img src="assets/images/logo-index.png" alt="info" />
+				{{/link-to}}
+			</menuitem>
+		</menu>
 
-{{link-to "add a task" "tasks.new"}}
+		<div class="main-container">
+			<div class="scroll-container">
+				<div>
+					<ul>
+						{{#unless model}}
+							<div class="no-tasks">
+								No Tasks
+							</div>
+						{{/unless}}
+						{{#each model as |task|}}
+							{{#unless task.isNew}}
+							<li class="is-active-{{task.isRunning}}" {{action "goToTask" task}}>
+								<div>
+									{{task.title}}
+								</div>
+								<div>
+									{{task.chronoTime}}
+								</div>
+								<div></div>
+							</li>
+							{{/unless}}
+						{{/each}}
+					</ul>
 
-{{#each model as |task|}}
-<div {{action "goToTask" task}}>
-	{{task.title}}:{{task.chronoTime}}
+				</div>
+			</div>
+
+			<div class="fixed">
+				{{#link-to "tasks.new" class="plus-btn"}}
+					<img src="assets/images/plus-btn.png" alt="+" />
+				{{/link-to}}
+				{{#link-to "tasks.new" class="add-task"}}
+					{{#main-btn}}
+						Add New Task
+					{{/main-btn }}
+				{{/link-to}}
+			</div>
+		</div>
+
+
+	</div>
 </div>
-{{/each}}
-
-{{outlet}}

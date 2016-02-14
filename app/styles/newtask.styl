@@ -1,0 +1,53 @@
+@keyframes route-show-in {
+	from{
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+#new-route
+	animation route-show-in 0.5s
+	width app_width
+	height app_height
+	position absolute
+	left 0px
+	top 0px
+	z-index new_task_z
+	background-color rgba(0,0,0,0.7)
+
+	.alert
+		background-color app_bg
+		width 510px
+		height 340px
+		position relative
+		top 180px
+		margin 0 auto
+		text-align center
+		border 3px solid active_color3
+
+	.title
+		font-size 28px
+		color active_color3
+		margin-top 45px
+
+	.input input
+		margin-top 40px
+		width 291px
+		height 33px
+		background-color transparent
+		background-image url("/assets/images/input.png")
+		background-repeat no-repeat
+		font-size 28px
+		color active_color2
+		padding 10px
+		border none
+
+	.btn-cont
+		margin-top 55px
+		padding 0px 45px
+		.main-btn:first-child
+			float left
+			& + .main-btn
+				float right

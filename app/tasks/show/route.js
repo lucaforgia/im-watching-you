@@ -5,24 +5,25 @@ export default Ember.Route.extend({
 	time:0,
 	delete:false,
 
-	// model(param){
-	// 	this.modelFor('tasks');
-	// 	return this._super(param);
-	// },
+	model(param){
+		if(!this.store.hasRecordForId('task',param.task_id)){
+			return this.transitionTo('tasks');
+		}
+		return this._super(param);
+	},
 
-	afterModel(task, transition){
+	afterModel(model, transition){
 		// start the timer as soon as the user enter the task page
-		this.set('time', task.get('time'));
+		this.set('time', model.get('time'));
 		this.set('delete',false);
-
 		var observerCallback = this.chroneRun.bind(this);
-		task.addObserver('isRunning',observerCallback);
+		model.addObserver('isRunning',observerCallback);
 		this.set('deleteRunningObs',()=>{
-			task.removeObserver('isRunning',observerCallback);
+			model.removeObserver('isRunning',observerCallback);
 		});
 
-		task.set('isRunning',true);
-		return this._super(task, transition);
+		model.set('isRunning',true);
+		return this._super(model, transition);
 	},
 
 	chroneRun(task){

@@ -1,0 +1,216 @@
+@keyframes mirror-start {
+	from{
+		transform:scaleY(-1);
+	}
+	to {
+		transform:scaleY(1);
+	}
+}
+
+@keyframes mirror-end {
+	from{
+		transform:scaleY(1);
+	}
+	to {
+		transform:scaleY(-1);
+	}
+}
+
+@keyframes stroke-start{
+	from{
+		stroke: inactive_color1;
+	}
+	to{
+		stroke: active_color3;
+	}
+}
+@keyframes stroke-end{
+	from{
+		stroke: active_color3;
+	}
+	to{
+		stroke: inactive_color1;
+	}
+}
+
+@keyframes fill-start{
+	from{
+		fill: inactive_color1;
+	}
+	to{
+		fill: active_color3;
+	}
+}
+@keyframes fill-end{
+	from{
+		fill: active_color3;
+	}
+	to{
+		fill: inactive_color1;
+	}
+}
+
+@keyframes title-start{
+	from{
+		color: inactive_color3;
+	}
+	to{
+		color: active_color2;
+	}
+}
+@keyframes title-end{
+	from{
+		color: active_color2;
+	}
+	to{
+		color: inactive_color3;
+	}
+}
+
+@keyframes reset-start{
+	from{
+		color: inactive_color1;
+	}
+	to{
+		color: active_color4;
+	}
+}
+@keyframes reset-end{
+	from{
+		color: active_color4;
+	}
+	to{
+		color: inactive_color1;
+	}
+}
+
+@keyframes reset-stroke-start{
+	from{
+		stroke: inactive_color1;
+	}
+	to{
+		stroke: active_color4;
+	}
+}
+@keyframes reset-stroke-end{
+	from{
+		stroke: active_color4;
+	}
+	to{
+		stroke: inactive_color1;
+	}
+}
+
+@keyframes delete-start{
+	from{
+		stroke: inactive_color4;
+		fill: inactive_color4;
+	}
+	to{
+		stroke: active_color5;
+		fill: active_color5;
+	}
+}
+@keyframes delete-end{
+	from{
+		stroke: active_color5;
+		fill: active_color5;
+	}
+	to{
+		stroke: inactive_color4;
+		fill: inactive_color4;
+	}
+}
+
+
+myAnimation(name){
+	@extend .showTaskTemplate.animation
+	animation-name name
+}
+
+.showTaskTemplate
+	z-index show_task_z
+	width show_width
+	height app_height
+	position absolute
+	top 0px
+	right 0px
+	text-align center
+
+	&.animation
+		animation-duration list_transition_time
+		-webkit-animation-fill-mode forwards
+		animation-fill-mode forwards
+		// animation-timing-function ease-in
+
+	#title
+		margin-top 30px
+		width 95%
+		font-size 44px
+		myAnimation(title-start)
+	.chrono-btn
+		cursor pointer
+		margin-top 50px
+		myAnimation(mirror-start)
+
+		circle
+			myAnimation(fill-start)
+		path
+			myAnimation(stroke-start)
+	.time
+		cursor pointer
+		font-size 42px
+		padding-top 50px
+		myAnimation(title-start)
+
+	.time:active
+		color active_color3 !important
+
+	.main-btn
+		myAnimation(reset-start)
+		width 260px
+		height 51px
+		line-height 51px
+		font-size 24px
+		margin-top 50px
+		&:hover
+			color active_color3
+		path
+			myAnimation(reset-stroke-start)
+
+	.reset-container
+		text-align center
+	.trash-btn
+		cursor pointer
+		myAnimation(delete-start)
+		position absolute
+		bottom 6px
+		right 10px
+		&:hover svg
+			transition stroke list_transition_time, fill list_transition_time
+			stroke active_color3
+			fill active_color3
+
+.showTaskTemplate:not(.active)
+	.chrono-btn
+		myAnimation(mirror-end)
+		circle
+			myAnimation(fill-end)
+		path
+			myAnimation(stroke-end)
+			// stroke inactive_color1
+	#title
+		myAnimation(title-end)
+
+	.time
+		myAnimation(title-end)
+	.main-btn
+		myAnimation(reset-end)
+		svg path
+			myAnimation(reset-stroke-end)
+	.trash-btn
+		myAnimation(delete-end)
+		&:hover svg
+			transition stroke list_transition_time, fill list_transition_time
+			stroke inactive_color2
+			fill inactive_color2

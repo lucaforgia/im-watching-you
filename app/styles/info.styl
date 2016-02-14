@@ -1,0 +1,65 @@
+
+
+#info-route
+	position relative
+	text-align center
+	height app_height
+	&.clear-h
+		vertical-align middle
+		margin 0
+		font-weight normal
+
+	h1
+		@extend #index-route.clear-h
+		font-family app_font_family
+		color active_color3
+		font-size 38px
+		padding-top 90px
+		padding-bottom 5px
+
+		img
+			vertical-align middle
+			&:last-child
+				padding-left 10px
+			&:first-child
+				visibility hidden
+
+	h2
+		@extend #index-route.clear-h
+		color active_color4
+		font-size 18px
+		padding 0px
+
+	h3
+		@extend #index-route.clear-h
+		color active_color2
+		font-size 24px
+		padding-top 10px
+
+	.credits
+		font-size 22px
+		padding-top 45px
+		color active_color2
+		span
+			color active_color4
+	.email
+		display inline-block
+		color active_color4
+		font-size 16px
+		padding-top 3px
+	.tools
+		font-size 20px
+		padding-top 45px
+		color active_color2
+	.link
+		padding-top 5px
+		a
+			font-size 24px
+			color active_color3
+			text-decoration underline
+	.list-btn
+			position absolute
+			bottom 10px
+			left 10px
+		rect
+			fill active_color4

@@ -1,0 +1,115 @@
+#tasks-route
+	position relative
+
+.showTaskTemplate + #tasks-container
+	width list_width_in_show
+
+	menu
+		text-align left
+		menuitem[label=list]
+			visibility visible
+		menuitem[label=info]
+			visibility hidden
+	.main-container
+		padding-right 35px
+		> .scroll-container
+			li
+				div
+					&:first-child
+						width 100%
+					&:nth-child(2)
+						width 100%
+						text-align center
+			li.is-active-false
+				div
+					&:first-child
+						color inactive_color1
+					&:nth-child(2)
+						color inactive_color4
+				&:hover div
+					color inactive_color2
+		.fixed
+			text-align left
+			a.add-task
+				display none
+			.plus-btn
+				display initial
+
+#tasks-container
+	width 100%
+	transition width list_transition_time
+	z-index tasks_list_z
+	position relative
+	height app_height
+	background-color app_bg
+
+	menu
+		text-align right
+		padding-top 13px
+		padding-right 13px
+		menuitem[label=list]
+			visibility hidden
+			margin-left 15px
+
+	.main-container
+		transition padding list_transition_time
+		padding 35px 50px 0px 50px
+		position relative
+
+		> .scroll-container
+			overflow:hidden;
+			width 100%
+
+			> div
+				width 100%
+				padding-right 25px
+				padding-left 10px
+				height scroll_height
+				overflow-y scroll
+
+		ul
+			display scroll
+			list-style none
+			padding 0
+			margin 0
+			width 100%
+			li
+				cursor pointer
+				width 100%
+				height task_row_height
+				div
+					transition width list_transition_time
+					transition color list_transition_time
+					&:first-child
+						@extend #im-watching-you .elips
+						width list_name_w
+						float left
+						font-size 28px
+						color active_color2
+
+						&:first-letter
+							text-transform uppercase
+					&:nth-child(2)
+						width time_w
+						text-align right
+						float right
+						margin-top 5px
+						font-size 20px
+						color active_color4
+					&:last-child
+						clear both
+				&:hover div
+					color active_color3
+
+		.fixed
+			margin-top 35px
+			text-align center
+			.plus-btn
+				display none
+			a
+				text-decoration none
+	.no-tasks
+		color active_color4
+		font-size 40px
+		text-align center
+		margin-top 50px
