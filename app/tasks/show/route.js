@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	timer:null,
 	time:0,
-	delete:false,
 
 	model(param){
 		if(!this.store.hasRecordForId('task',param.task_id)){
@@ -15,10 +14,9 @@ export default Ember.Route.extend({
 	afterModel(model, transition){
 		// start the timer as soon as the user enter the task page
 		this.set('time', model.get('time'));
-		this.set('delete',false);
 		var observerCallback = this.chroneRun.bind(this);
 		model.addObserver('isRunning',observerCallback);
-		this.set('deleteRunningObs',()=>{
+		model.set('deleteRunningObs',()=>{
 			model.removeObserver('isRunning',observerCallback);
 		});
 
@@ -38,20 +36,18 @@ export default Ember.Route.extend({
 			_t.set('timer',timer);
 		}else{
 			clearInterval(_t.get('timer'));
-			if(this.get('delete')){
-				task.deleteRecord();
-			}
-			else{
-				task.set('time',_t.get('time'));
-			}
-			task.save();
+			task.set('time',_t.get('time'));
 		}
 	},
 
 	actions:{
 		willTransition() {
-			this.set('currentModel.isRunning',false);
-			this.get('deleteRunningObs')();
+			var model = this.get('currentModel');
+			if(!model.get('isDeleted')){
+				model.set('isRunning',false);
+			}
+			model.get('deleteRunningObs')();
+			model.save();
 		},
 		chronoClick(){
 			this.toggleProperty('currentModel.isRunning');
@@ -64,7 +60,10 @@ export default Ember.Route.extend({
 			this.set('currentModel.time',this.get('time'));
 		},
 		removeTask(){
-			this.set('delete',true);
+			// this.set('delete',true);
+			var model = this.get('currentModel');
+			model.set('isRunning',false);
+			model.deleteRecord();
 			this.transitionTo('tasks');
 		}
 	}

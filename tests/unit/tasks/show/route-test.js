@@ -27,7 +27,7 @@ test('timer is working', function(assert) {
 		record.set('time',1000);
 		route.set('currentModel',record);
 		route.afterModel(record,{});
-		route.get('deleteRunningObs')();
+		record.get('deleteRunningObs')();
 	});
 
 
