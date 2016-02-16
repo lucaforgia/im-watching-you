@@ -9,9 +9,9 @@ This _stuff_ is not intended to be really a community-driven project. Please don
 What it does.  
 You create tasks, like in a to-do list. You can delete them. And you can start-stop the chronometer relative to that task. So at the end of the day you have a slight idea how the fuck you have spent your precious life.
 
-The app is develop keeping in mind that it has to be as light as possible since it's a background app. So, no model-render changes inside the _chrono_ _setInteval()_ loop. The **view** (the time) is updated only with an **explicit user action**, clicking on the time, stopping the chrono, or exiting the route (in that case the model is updated and saved). Also, no animations.
+The app is develop keeping in mind that it has to be as light as possible since it's a background app.
 
-The choice to don't constantly update the time is also to remove the potential distraction (a running timer draws your eyes).
+Wanna test it? [Here](http://lucaforgia.github.io/im-watching-you-webapp/).
 
 
 ## Prerequisites
