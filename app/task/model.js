@@ -11,7 +11,7 @@ var Task = DS.Model.extend({
             return getTime(this.get('time'));
         }
     }),
-    isRunning:DS.attr('boolean')
+    isRunning:false
 });
 
 export default Task;
