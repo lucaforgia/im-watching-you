@@ -52,6 +52,6 @@ export default Ember.Route.extend({
 			else{
 				this.transitionTo('tasks');
 			}
-		},
+		}
 	}
 });

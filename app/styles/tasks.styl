@@ -7,8 +7,8 @@
 	menu
 		text-align left
 		menuitem[label=list]
-			visibility visible
-		menuitem[label=info]
+			display initial
+		menuitem[label=info], menuitem[label=reset]
 			visibility hidden
 	.main-container
 		padding-right 35px
@@ -44,11 +44,25 @@
 	background-color app_bg
 
 	menu
-		text-align right
+		white-space nowrap
+		// text-align right
 		padding-top 13px
-		padding-right 13px
+		padding-left 13px
+		menuitem
+			display inline-block
+		menuitem[label=info], menuitem[label=reset]
+			width 50%
+		menuitem[label=reset]
+			text-align right
+			span
+				cursor pointer
+				padding-right 65px
+				color active_color2
+				font-size 25px
+			span:hover, span:active
+				color active_color3
 		menuitem[label=list]
-			visibility hidden
+			display none
 			margin-left 15px
 
 	.main-container

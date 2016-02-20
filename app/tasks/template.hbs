@@ -12,6 +12,13 @@
 					<img src="assets/images/logo-index.png" alt="info" />
 				{{/link-to}}
 			</menuitem>
+			{{#if model}}
+				<menuitem type="command" label="reset">
+					<span {{action "resetAll"}}>
+						reset all
+					</span>
+				</menuitem>
+			{{/if}}
 		</menu>
 
 		<div class="main-container">
